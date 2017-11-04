@@ -2,7 +2,7 @@ import os
 import csv
 
 # Change directory
-loc = input("Enter a directory: ".strip())
+loc = input("Enter files' location: ".strip())
 os.chdir(loc)
 list = os.listdir(loc)
 
@@ -16,6 +16,13 @@ for i in list:
 
 
 # Open the CSV file
-# file = input("Enter a file's name".strip())
-# ofile = open(file, 'r')
+for file in list:
+    ofile = open(file, 'r')
+    # Read each file
+    rfile = csv.reader(ofile)
+    # Write the all data
+    for d in rfile:
+        wNew.writerow(d)
+    wNew.writerow('\n')
+
 
